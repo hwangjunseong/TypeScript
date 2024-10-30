@@ -1,16 +1,17 @@
+"use strict";
 console.log('Starting lite-server');
 //as 키워드로 어떤 유형의 타입인지 알려줌
-var num1Element = document.getElementById('num1');
-var num2Element = document.getElementById('num2');
+const num1Element = document.getElementById('num1');
+const num2Element = document.getElementById('num2');
 //TS가 지원하는 BUILTIN 유형 중 하나 HTMLButtonElement
 //typescript가 알아서 유형을 추론할 수 있다
 //buttonElement:HTMLButtonElement
 //typescript는 buttonElement가 존재하는지 찾지않는다
-var buttonElement = document.querySelector('button'); //null인 경우인지 체크
+const buttonElement = document.querySelector('button'); //null인 경우인지 체크
 //배열안에 가지는 값의 유형 저장
 // const numResults: number[] = []; //숫자로 이뤄진 배열
-var numResults = []; //숫자로 이뤄진 배열
-var textResults = []; //문자열로 이뤄진 배열
+const numResults = []; //숫자로 이뤄진 배열
+const textResults = []; //문자열로 이뤄진 배열
 //use strict일때 한개의 매개변수에 대해 any 설정하는거 허용안됨
 //any => 데이터유형에 대해 모를 떄
 // function add(num1: any, num2: number) {
@@ -54,11 +55,11 @@ function printResult(resultObj) {
 // });
 //es6 js임, promise가 resolve할 유형을 정해줘야함
 //모든 builtin 객체에 대해 유형을 정해줄 수는 없다
-var myPromise = new Promise(function (resolve, reject) {
-    setTimeout(function () {
+const myPromise = new Promise((resolve, reject) => {
+    setTimeout(() => {
         resolve('it worked!');
     }, 1000);
 });
-myPromise.then(function (result) {
+myPromise.then((result) => {
     console.log(result.split('w')); //w 기준으로 나눔
 });

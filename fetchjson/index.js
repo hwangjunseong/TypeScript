@@ -1,19 +1,18 @@
 "use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", { value: true });
-console.log('Starting lite-server');
-var node_fetch_1 = require("node-fetch");
-var axios_1 = require("axios");
-var url = 'https://jsonplaceholder.typicode.com/todos/1';
-(0, node_fetch_1.default)(url)
-    .then(function (response) { return response.json(); })
-    .then(function (data) {
-    // 응답 데이터 처리
-    console.log(data);
-})
-    .catch(function (error) {
-    // 에러 처리
-    console.error(error);
+const axios_1 = __importDefault(require("axios"));
+const url = 'https://jsonplaceholder.typicode.com/todos/1';
+axios_1.default.get(url).then((response) => {
+    const todo = response.data;
+    const id = todo.id;
+    const title = todo.title;
+    const completed = todo.completed;
+    logToTodo(id, title, completed);
+    //   console.log(id, title, completed);
 });
-axios_1.default.get(url).then(function (response) {
-    console.log(response);
-});
+const logToTodo = (id, title, completed) => {
+    console.log(`ID: ${id}, Title: ${title}, Completed: ${completed}`);
+};

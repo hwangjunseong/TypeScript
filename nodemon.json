@@ -1,0 +1,4 @@
+{
+  "watch": ["sort/build"],
+  "ext": "js"
+}
